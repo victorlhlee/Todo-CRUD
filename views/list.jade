@@ -1,0 +1,39 @@
+doctype
+html(lang="en")
+head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
+  meta(charset="UTF-8")
+  title Document
+body
+  h1 ToDos
+    ul 
+      each item in todos
+        li
+          div
+            input( type = "checkbox", name = "text", checked = false)
+            span.title= item.title
+            span.decription= item.description
+        form(action="/todos/#{item._id}?_method=DELETE", method="POST")
+          button x    
+          
+    a(class='button', href='/new_todo') New
+
+     
+        
+              
+      
+
+
+                    
+
+
+      
+       
+
+
+
+      
+
+  

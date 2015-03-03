@@ -1,0 +1,22 @@
+doctype
+html(lang="en")
+head
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  link(rel="stylesheet", href="styles/_reset.css")
+  link(rel="stylesheet", href="styles/styles.css")
+  meta(charset="UTF-8")
+  title Document
+body
+  h1 new todo list
+  section.form_container
+    form( action = "/new_todo", method = "POST")
+      fieldset
+        div
+          input( type = "text", name = "title" placeholder = "title")  
+        div
+          input( type = "text", name = "description" placeholder = "description")  
+        button Submit
+              
+
+
+  
