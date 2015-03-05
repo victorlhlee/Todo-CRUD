@@ -1,5 +1,86 @@
-
+/*global styling*/
 body{
-  background-color: red;
-  text-align: center;
+  background-color: white;
+  font-family: 'Slackey', cursive;
+}
+
+h1{
+  font-size: 35px;
+  color: orange;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-left: 2px;
+}
+
+/*list.jade*/
+span.title{
+  margin: 10px;
+  font-size: 26px;
+  color: #43007D;
+}
+
+span.description{
+  margin: 50px;
+  font-size: 20px;
+  color: blue;
+}
+
+ul{
+  text-align: left;
+}
+
+button{
+  float: right;
+  padding: 10px;
+  border-radius: 5px;
+  width: 5%;
+  margin-top: -75px;
+  margin-right: 20px;
+  background-color: orange;
+}
+
+
+div{
+  background-color: silver;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+/*new_todo.jade*/
+button.save{
+  float: left;
+  margin-top: -10px;
+  width: 5%;
+}
+
+/*edit_todo.jade*/
+button.submit{
+  float: left;
+  margin-top: -10px;
+  width: 70px;
+}
+
+div.new{
+  background-color: white;
+}
+
+input.title{
+  width: 500px;
+  height: 30px;
+}
+
+input.description{
+  width: 500px;
+  height: 100px;
+}
+
+form{
+  display: block;
+
 }

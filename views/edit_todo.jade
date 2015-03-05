@@ -1,0 +1,21 @@
+doctype
+html(lang="en")
+head
+  link(href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css')
+  script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+    //- set path to absolute "/js" "/styles" 
+  script(type="text/javascript" src="/js/todo.js")
+  link(rel="stylesheet", href="/styles/_reset.css")
+  link(rel="stylesheet", href="/styles/styles.css") 
+  meta(charset="UTF-8")
+  title Document
+body
+  h1 Edit
+  section.form_container
+    form( action = "/todos/#{todo._id}?_method=PUT",method = "POST")
+      fieldset
+        div.new
+          input.title( type = "text", name = "title" value = todo.title)  
+        div.new
+          input.description( type = "text", name = "description" value = todo.description)  
+        button.submit submit

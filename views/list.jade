@@ -1,24 +1,33 @@
 doctype
 html(lang="en")
 head
+  link(href='http://fonts.googleapis.com/css?family=Slackey' rel='stylesheet' type='text/css')
   script(type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js")
+  script(type="text/javascript" src="js/todo.js")
   link(rel="stylesheet", href="styles/_reset.css")
   link(rel="stylesheet", href="styles/styles.css")
   meta(charset="UTF-8")
   title Document
 body
-  h1 ToDos
+  h1 Get Sh*t Done 
+  div.counter
+    p.incomplete not yet 
+      span.incomplete_number
+    p.complete pau
+      span.pau_number
     ul 
       each item in todos
-        li
+        li.item
+         a(href='/todos/#{item._id}')   
           div
-            input( type = "checkbox", name = "text", checked = false)
+            input( type = "checkbox", name = "text", data-todo-id="#{item._id}", data-checked="#{item.is_done}")
             span.title= item.title
-            span.decription= item.description
+            br
+            span.description= item.description
         form(action="/todos/#{item._id}?_method=DELETE", method="POST")
-          button x    
+          button X    
           
-    a(class='button', href='/new_todo') New
+    a(class='button', href='/new_todo') Add Item
 
      
         

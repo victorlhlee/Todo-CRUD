@@ -46,6 +46,19 @@ app.get('/new_todo', function (req, res){
   res.render('new_todo');
 });
 
+
+// get edit todo form page
+app.get('/todos/:id', function (req, res){
+  var todo_id = req.params.id;
+
+  ToDo.findById(todo_id, function (err, todo){
+    res.render('edit_todo', {
+      todo : todo
+    });
+  });
+  
+});
+
 //post data
 app.post('/new_todo', function (req, res){
   //prep data 
@@ -62,20 +75,54 @@ app.post('/new_todo', function (req, res){
   });
 });
 
-//put data
-app.put('/', function (req, res){
+app.put('/todos/:id', function (req, res){
+  //prep data
+  var todo_id = req.params.id;
+  ToDo.findById(todo_id, function(err, todosFromDB){
+    todosFromDB.title = req.body.title;
+    todosFromDB.description = req.body.description;
 
+    todosFromDB.save(function (err){
+      if(err) throw err;
+      res.redirect('/');
+    });
+  });
 });
 
 
 //delete item in todo list
 app.delete('/todos/:id', function (req, res){
-  var todo_id = req.params.id;
-  ToDo.findById(todo_id, function (err, todo){
-    todo.remove(function (err, todo) {
-      res.redirect('/');
+  var todo_id = req.params.id; //req.params for dynamic url 
+  ToDo.findById(todo_id, function (err, todo){ //find todo item by id
+    todo.remove(function() { //remove todo item
+      res.redirect('/'); //redirect by to list page
     });
   });
+});
+
+//put data
+app.put('/todos/:id/complete', function (req, res){
+  // var todo_id = req.params.id;
+  console.log("update");
+  ToDo.update({_id: req.params.id},
+    {is_done : true}, 
+     function (err, todo){
+      if (err) throw err;
+      res.send("okay");
+      // res.redirect('/');
+    });
+});
+
+app.put('/todos/:id/incomplete', function (req, res){
+  // var todo_id = req.params.id;
+  // console.log("update");
+  ToDo.update({_id: req.params.id},
+    {is_done : false}, 
+     function (err, todo){
+      if (err) throw err;
+      res.send("okay");
+      // res.redirect('/'); //ajax can't do redirect
+    });
 });
 
 
