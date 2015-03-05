@@ -5,7 +5,7 @@ body{
 }
 
 h1{
-  font-size: 35px;
+  font-size: 50px;
   color: orange;
   font-weight: bold;
   margin-top: 5px;
@@ -13,16 +13,51 @@ h1{
 }
 
 /*list.jade*/
+
+div.header{
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+div.counter{
+  display: inline-block;
+  float: right;
+  margin-right: 5px;
+  margin-top: 25px;
+  font-size: 25px;
+  color: green;
+}
+
+p.complete{
+  margin-left: 180px;
+  margin-top: -23px;
+  margin-right: 15px;
+}
+
+
 span.title{
   margin: 10px;
-  font-size: 26px;
+  font-size: 28px;
+  font-weight: bold;
   color: #43007D;
+  margin-left: 30px;
 }
 
 span.description{
   margin: 50px;
-  font-size: 20px;
+  font-size: 18px;
   color: blue;
+  margin-left: 50px;
+}
+
+span.incomplete_number{
+  margin-left: 10px;
+  color: red;
+  font-weight: bold;
+}
+
+span.pau_number{
+  margin-left: 10px;
 }
 
 ul{
@@ -34,23 +69,26 @@ button{
   padding: 10px;
   border-radius: 5px;
   width: 5%;
-  margin-top: -75px;
+  margin-top: -85px;
   margin-right: 20px;
   background-color: orange;
 }
 
 
-div{
+div.list{
   background-color: silver;
   margin: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+div.header{
+  display:inline-block;
 }
 
 a{
   text-decoration: none;
+  font-size: 40px;
 }
-
-
 
 /*new_todo.jade*/
 button.save{
@@ -70,6 +108,14 @@ div.new{
   background-color: white;
 }
 
+.checkbox input{
+  display: inline-block;
+}
+
+.checkbox a{
+    display: inline-block;
+}
+
 input.title{
   width: 500px;
   height: 30px;
@@ -82,5 +128,8 @@ input.description{
 
 form{
   display: block;
+}
 
+.line_through{
+  text-decoration: line-through;
 }
